@@ -1,10 +1,10 @@
 import React from 'react'
-import { Row, Col } from 'reactstrap'
+import { Row } from 'reactstrap'
 import MenuComponent from './MenuComponent'
 
 function NavsideComponent() {
   return (
-    <Row className="FHseYW">
+    <Row className="full-height">
       <MenuComponent />
     </Row>
   )

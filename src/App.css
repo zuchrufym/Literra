@@ -5,13 +5,13 @@
   background-color: white;
 }
 
-/* Full screen for every content /
+/* Full screen for every content */
 .FHseYW {
   height: 100%;
   width: 100%;
 }
 
-/ Main Grid with total 12fr top: 1fr and bot: 11fr /
+/* Main Grid with total 12fr top: 1fr and bot: 11fr */
 .MxeRr {
   height: 100%;
   width: 100%;
@@ -21,7 +21,7 @@
   background-color: whitesmoke;
 }
 
-/ Content Grid with total 12fr left: 10fr and right: 2fr /
+/* Content Grid with total 12fr left: 10fr and right: 2fr */
 .cTraYs {
   height: 100%;
   width: 100%;
@@ -30,7 +30,7 @@
   grid-column-gap: 20px;
 }
 
-/ Left Content with total 12fr top:2fr and bot:10fr /
+/* Left Content with total 12fr top:2fr and bot:10fr */
 .LftYwr {
   height: 100%;
   width: 100%;
@@ -39,7 +39,7 @@
   grid-row-gap: 20px;
 }
 
-/* / Custom Card / */
+/* Custom Card */
 .cRDmY {
   height: 100%;
   width: 100%;
@@ -48,7 +48,7 @@
   background-color: white;
 }
 
-/*  w and h button setting for quick action */ *
+/* w and h button setting for quick action */
 .BttRay {
   width: 420px;
   height: 50px;
@@ -113,82 +113,9 @@
   grid-column-gap: 20px;
 }
 
-.full-height{
-  height: 100%;
-}
-
-.full-width{
-  width: 100%;
-}
-
-.empty-space{
-  height: 10%;
-  width: 100%;
-}
-
-.card-empty{
-  border-radius: 1rem;
-}
-
-.ExSu{
+.button-remove {
   background-color: grey;
-  border-radius: 0.5rem;
-  border: grey;
-}
-
-.CaExSu{
-  height: 50%;
-  width: 100%;
   border: 1px solid grey;
-  border-radius: 0.5rem;
-  background-color: grey;
-}
-
-.CaExSu2 {
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 10fr 1fr;
-  grid-column-gap: 5px;
-}
-
-.BaYscc {
-  height: 50px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 12fr 2fr;
-  grid-column-gap: 5px;
-}
-
-.cRDmYy {
-  height: 100%;
-  width: 100%;
-  border: 1px solid grey;
-  border-radius: 0.5rem;
+  border-radius: 5px 5px 5px 5px;
   background-color: white;
-}
-
-.cRDmYyy {
-  height: 100%;
-  width: 100%;
-  border: 1px solid grey;
-  border-radius: 0.5rem;
-  background-color: white;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 5px;
-}
-
-.EmSpCa {
-  height: 100px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 12fr 2fr;
-  grid-column-gap: 20px;
-}
-
-.Main{
-  background-color: lightgray;
-  border-radius: 0.5rem;
-  border: lightgray;
 }

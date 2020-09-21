@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Nav, NavItem, NavLink } from 'reactstrap'
+import { Col, Nav, NavbarBrand, NavItem, NavLink } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faBookOpen,
@@ -7,54 +7,61 @@ import {
   faEye,
   faFileExcel,
   faIdCardAlt,
-  faPen,
+  faSignOutAlt,
   faThList,
   faUserGraduate,
 } from '@fortawesome/free-solid-svg-icons'
+import logo from '../logo.svg'
+import { Link, Route, BrowserRouter as Router } from 'react-router-dom'
 
 const Example = (props) => {
   return (
-    <Col className="full-height  justify-content-center">
-      <Nav className="full-height" vertical>
+    <Col className="FHseYW  justify-content-center">
+      <Nav className="FHseYW" vertical>
         <NavItem className="my-5 align-self-center">
           <NavLink>
-            <FontAwesomeIcon icon={faPen} size="2x" color="#284a63"/>
+            <img src={logo} width="40px"></img>
           </NavLink>
         </NavItem>
         <NavItem className="mb-4 align-self-center">
-          <NavLink href="#">
-            <FontAwesomeIcon icon={faThList} size="lg" color="#284a63"/>
-          </NavLink>
+          <Link to="/">
+            <FontAwesomeIcon icon={faThList} size="lg" />
+          </Link>
         </NavItem>
         <NavItem className="mb-4 align-self-center">
-          <NavLink href="#">
-            <FontAwesomeIcon icon={faBookOpen} size="lg" color="#284a63"/>
-          </NavLink>
+          <Link to="/exams">
+            <FontAwesomeIcon icon={faBookOpen} size="lg" />
+          </Link>
         </NavItem>
         <NavItem className="mb-4 align-self-center">
-          <NavLink href="#">
-            <FontAwesomeIcon icon={faBriefcase} size="lg" color="#284a63"/>
-          </NavLink>
+          <Link to="/qbank">
+            <FontAwesomeIcon icon={faBriefcase} size="lg" />
+          </Link>
         </NavItem>
         <NavItem className="mb-4 align-self-center">
-          <NavLink href="#">
-            <FontAwesomeIcon icon={faUserGraduate} size="lg" color="#284a63"/>
-          </NavLink>
+          <Link to="/students">
+            <FontAwesomeIcon icon={faUserGraduate} size="lg" />
+          </Link>
         </NavItem>
         <NavItem className="mb-4 align-self-center">
-          <NavLink href="#">
-            <FontAwesomeIcon icon={faFileExcel} size="lg" color="#284a63"/>
-          </NavLink>
+          <Link to="/reports">
+            <FontAwesomeIcon icon={faFileExcel} size="lg" />
+          </Link>
         </NavItem>
         <NavItem className="mb-4 align-self-center">
-          <NavLink href="#">
-            <FontAwesomeIcon icon={faEye} size="lg" color="#284a63"/>
-          </NavLink>
+          <Link to="/proctoring">
+            <FontAwesomeIcon icon={faEye} size="lg" />
+          </Link>
+        </NavItem>
+        <NavItem className="mb-4 align-self-center">
+          <Link to="/employees">
+            <FontAwesomeIcon icon={faIdCardAlt} size="lg" />
+          </Link>
         </NavItem>
         <NavItem className="m-auto align-self-center">
-          <NavLink href="#">
-            <FontAwesomeIcon icon={faIdCardAlt} size="lg" color="#284a63"/>
-          </NavLink>
+          <Link to="/logout">
+            <FontAwesomeIcon icon={faSignOutAlt} size="lg" />
+          </Link>
         </NavItem>
       </Nav>
     </Col>
