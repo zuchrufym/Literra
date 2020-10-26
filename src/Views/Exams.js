@@ -1,49 +1,32 @@
-import React from 'react'
-// import TableExamSubjects from '../Components/TableExamSubjects'
-import TableExamSubjects from '../components/TableExamSubjects'
-
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import React, { Component } from 'react'
 import ExamSubjectTable from '../components/Tables/ExamSubjectTable'
 import ExamPackageTable from '../components/Tables/ExamPackageTable'
-import ExamPackageModal from '../components/Modals/ExamPackageModal'
-function Exams() {
-  let students = [
-    {
-      id: 1,
-      name: 'Math',
-    },
-    {
-      id: 2,
-      name: 'Social',
-    },
-    {
-      id: 3,
-      name: 'Science',
-    },
-  ]
+import { connect } from 'react-redux'
+import { getExamSubjectList } from '../Actions/ExamSubjectActions'
 
-  return (
-    <div className="mRwey">
-      <div className="QrYSs">
-        <div className="cRDmY"></div>
-        <div className="cRDmY"></div>
-        <div className="cRDmY"></div>
-      </div>
-      <div className="BaYsa">
-        <div className="cRDmY  p-4">
-          <h3>Exam Subjects</h3>
-          <hr />
-          <ExamSubjectTable />
+class Exams extends Component {
+  componentDidMount() {
+    this.props.dispatch(getExamSubjectList())
+  }
+
+  render() {
+    return (
+      <div className="FHseYW">
+        <div className="BaYsa">
+          <div className="cRDmY  p-4">
+            <h3>Exam Subjects</h3>
+            <hr />
+            <ExamSubjectTable />
+          </div>
+          <div className="cRDmY p-4">
+            <h3>Exam Packages</h3>
+            <hr />
+            <ExamPackageTable />
+          </div>
         </div>
-        <div className="cRDmY p-4">
-          <h3>Exam Packages</h3>
-          <hr />
-          <ExamPackageModal />
-          <ExamPackageTable />
-        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
-export default Exams
+export default connect()(Exams)

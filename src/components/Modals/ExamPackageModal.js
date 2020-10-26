@@ -2,8 +2,9 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-// import ExamSubjectForm from '../Forms/ExamSubjectForm'
+import ExamPackageCard from '../Cards/ExamPackageCard'
 import ExamPackageForm from '../Forms/ExamPackageForm'
+import ExamSubjectForm from '../Forms/ExamSubjectForm'
 
 const ExamPackageModal = (props) => {
   const { buttonLabel, className } = props
@@ -15,12 +16,12 @@ const ExamPackageModal = (props) => {
   return (
     <div>
       <Button color="primary" onClick={toggle}>
-        <FontAwesomeIcon icon={faPlus} /> New
+        <FontAwesomeIcon icon={faPlus} />
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Add new exam packages</ModalHeader>
+        <ModalHeader toggle={toggle}>Add new exam subjects</ModalHeader>
         <ModalBody>
-          <ExamPackageForm></ExamPackageForm>
+          <ExamPackageForm />
         </ModalBody>
         <ModalFooter>
           <Button color="primary" onClick={toggle}>

@@ -1,81 +1,70 @@
 import { Table } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faEdit,
-  faPlus,
-  faRemoveFormat,
-  faTrash,
-} from '@fortawesome/free-solid-svg-icons'
-import React, { useState } from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-// import ExamSubjectModal from '../Modals/ExamSubjectModal'
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import React, { Component } from 'react'
+import { Button } from 'reactstrap'
 import ExamSubjectModal from '../Modals/ExamSubjectModal'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import {
+  deleteDataExamSubject,
+  deleteExamSubject,
+} from '../../Actions/ExamSubjectActions'
 
-const ExamSubjectTable = (props) => {
-  const { buttonLabel, className } = props
-
-  const [modal, setModal] = useState(false)
-
-  const toggle = () => setModal(!modal)
-
-  return (
-    <Table borderless className="text-center">
-      <thead>
-        <tr>
-          <th>
-            <ExamSubjectModal />
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="d-flex justify-content-between">
-            <div className="w-75">
-              <Button className="w-100">Math</Button>
-            </div>
-            <div>
-              <Button className="mr-1  button-remove">
-                <FontAwesomeIcon icon={faEdit} />
-              </Button>
-              <Button className="button-remove">
-                <FontAwesomeIcon icon={faTrash} />
-              </Button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td className="d-flex justify-content-between">
-            <div className="w-75">
-              <Button className="w-100">Science</Button>
-            </div>
-            <div>
-              <Button className="mr-1">
-                <FontAwesomeIcon icon={faEdit} />
-              </Button>
-              <Button>
-                <FontAwesomeIcon icon={faTrash} />
-              </Button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td className="d-flex justify-content-between">
-            <div className="w-75">
-              <Button className="w-100">Social</Button>
-            </div>
-            <div>
-              <Button className="mr-1">
-                <FontAwesomeIcon icon={faEdit} />
-              </Button>
-              <Button>
-                <FontAwesomeIcon icon={faTrash} />
-              </Button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </Table>
-  )
+const mapStateToProps = (state) => {
+  return {
+    dataExamSubject: state.examSubjects.getExamSubjectsList,
+    error: state.examSubjects.errorExamSubjectsList,
+  }
 }
 
-export default ExamSubjectTable
+class ExamSubjectTable extends Component {
+  handleSubmit(id) {
+    this.props.dispatch(deleteExamSubject(id))
+  }
+
+  render() {
+    let examSubject = Object.values(this.props.dataExamSubject)
+    return (
+      <Table borderless className="text-center">
+        <thead>
+          <tr>
+            <th>
+              <ExamSubjectModal />
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {examSubject.map((examSubject) => (
+            <tr>
+              <td className="d-flex justify-content-between">
+                <div className="w-75">
+                  <Button className="w-100 button-remove">
+                    {examSubject.id}
+                    {examSubject.name}
+                  </Button>
+                </div>
+                <div>
+                  <Button className="mr-1  button-remove">
+                    <FontAwesomeIcon icon={faEdit} />
+                  </Button>
+
+                  <Button
+                    onClick={() =>
+                      this.props.dispatch(deleteExamSubject(examSubject.id))
+                    }
+                    className="button-remove button-remove"
+                  >
+                    <FontAwesomeIcon icon={faTrash} />
+                  </Button>
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    )
+  }
+}
+
+export default connect(mapStateToProps, null)(ExamSubjectTable)

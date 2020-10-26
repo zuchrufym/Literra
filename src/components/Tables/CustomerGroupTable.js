@@ -1,26 +1,19 @@
 import { Table } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
-import React, { useState } from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-import ExamSubjectModal from '../Modals/ExamSubjectModal'
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
+import { Button } from 'reactstrap'
+
 import CustomerGroupModal from '../Modals/CustomerGroupModal'
-// import ExamPackageCard from '../components/Cards/ExamPackageCard'
-import ExamPackageCard from '../Cards/ExamPackageCard'
-// import ExamSubjectTable from './components/TablesExamSubjectTable'
-import ExamSubjectTable from '../Tables/ExamSubjectTable'
+
 
 const CustomerGroupTable = (props) => {
-  const { buttonLabel, className } = props
-
   let customer = props.customer
 
-  const [modal, setModal] = useState(false)
-
-  const toggle = () => setModal(!modal)
-
   return (
-    <Table borderless className="text-center">
+    
+<div>
+<Table id="test" borderless className="text-center">
       <thead>
         <tr>
           <th>
@@ -48,6 +41,8 @@ const CustomerGroupTable = (props) => {
         ))}
       </tbody>
     </Table>
+</div>
+
   )
 }
 

@@ -1,37 +1,86 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import React, { Component, useState } from 'react'
+import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
 import ExamSubjectForm from '../Forms/ExamSubjectForm'
+import {
+  deleteDataExamSubject,
+  postExamSubjectCreate,
+} from '../../Actions/ExamSubjectActions'
+import swal from 'sweetalert'
+import { connect } from 'react-redux'
 
-const ExamSubjectModal = (props) => {
-  const { buttonLabel, className } = props
+const mapStateToProps = (state) => {
+  return {
+    getResponDataExamSubject: state.examSubjects.getResponDataExamSubject,
+    errorResponDataExamSubject: state.examSubjects.errorResponExamSubject,
+  }
+}
+//
 
-  const [modal, setModal] = useState(false)
+class ExamSubjectModal extends Component {
+  handleSubmit(data) {
+    this.props.dispatch(postExamSubjectCreate(data))
+  }
 
-  const toggle = () => setModal(!modal)
+  constructor(props) {
+    super(props)
+    this.state = {
+      showModal: false,
+    }
+    this.toggleModal = this.toggleModal.bind(this)
+  }
 
-  return (
-    <div>
-      <Button color="primary" onClick={toggle} className="w-100">
-        <FontAwesomeIcon icon={faPlus} />
-      </Button>
-      <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Add new exam subjects</ModalHeader>
-        <ModalBody>
-          <ExamSubjectForm />
-        </ModalBody>
-        <ModalFooter>
-          <Button color="primary" onClick={toggle}>
-            Submit
-          </Button>{' '}
-          <Button color="secondary" onClick={toggle}>
-            Cancel
-          </Button>
-        </ModalFooter>
-      </Modal>
-    </div>
-  )
+  toggleModal() {
+    this.setState({
+      showModal: !this.state.showModal,
+    })
+  }
+
+  render() {
+    if (
+      this.props.getResponDataExamSubject ||
+      this.props.errorResponDataExamSubject
+    ) {
+      if (this.props.errorResponDataExamSubject) {
+        swal(
+          'Exam Subject Failed to Create',
+          this.props.errorResponDataExamSubject,
+          'error',
+        )
+        this.props.dispatch(deleteDataExamSubject())
+      } else {
+        swal(
+          'Exam Subject Created',
+          'Name :' + this.props.getResponDataExamSubject.name,
+          'success',
+        )
+      }
+    }
+
+    return (
+      <div>
+        <Button
+          color="primary"
+          onClick={() => this.toggleModal()}
+          className="w-100"
+        >
+          <FontAwesomeIcon icon={faPlus} />
+        </Button>
+        <Modal isOpen={this.state.showModal} toggle={() => this.toggleModal()}>
+          <ModalHeader toggle={() => this.toggleModal()}>
+            Add new exam subjects
+          </ModalHeader>
+          <ModalBody>
+            <ExamSubjectForm
+              onSubmit={(data) => this.handleSubmit(data)}
+              onCloseModal={() => this.toggleModal()}
+            />
+          </ModalBody>
+        </Modal>
+      </div>
+    )
+  }
 }
 
-export default ExamSubjectModal
+export default connect(mapStateToProps)(ExamSubjectModal)

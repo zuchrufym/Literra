@@ -5,7 +5,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import StudentForm from '../Forms/StudentForm'
 
 const StudentModal = (props) => {
-  const { buttonLabel, className } = props
+  const { className } = props
 
   const [modal, setModal] = useState(false)
 

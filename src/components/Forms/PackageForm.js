@@ -6,12 +6,7 @@ const PackageForm = (props) => {
     <Form>
       <FormGroup>
         <Label for="packageName">Package Name</Label>
-        <Input
-          type="text"
-          name="packageName"
-          id=" "
-          placeholder="ex. math 1"
-        />
+        <Input type="text" name="packageName" id=" " placeholder="ex. math 1" />
       </FormGroup>
     </Form>
   )

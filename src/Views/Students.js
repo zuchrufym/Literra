@@ -3,6 +3,7 @@ import { Button } from 'reactstrap'
 import StudentCard from '../components/Cards/StudentCard'
 import StudentModal from '../components/Modals/StudentModal'
 import CustomerGroupTable from '../components/Tables/CustomerGroupTable'
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 
 function Students() {
   let array = [
@@ -49,6 +50,13 @@ function Students() {
           <h3>Students</h3>
           <StudentModal />
           <StudentCard />
+          <ReactHTMLTableToExcel
+                    id="converttableliterratry-button"
+                    className="download-table-xls-button"
+                    table="studentTable"
+                    filename="studentTable"
+                    sheet="output1"
+                    buttonText="Download as XLS"/>
         </div>
       </div>
     </div>

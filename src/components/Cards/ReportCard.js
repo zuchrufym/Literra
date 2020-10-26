@@ -1,12 +1,10 @@
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faDownload, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
 import { Table } from 'reactstrap'
-import StudentModal from '../Modals/StudentModal'
+import ReportModal from '../Modals/ReportModal'
 
-
-const StudentCard = (props) => {
+const ReportCard = (props) => {
   let array = [
     {
       id: 1,
@@ -39,19 +37,14 @@ const StudentCard = (props) => {
     },
   ]
   return (
-    <Table id="studentTable">
+    <Table className="text-center">
       <thead>
-        <tr>
-          <th colSpan="6">
-            <StudentModal />
-          </th>
-        </tr>
         <tr>
           <th scope="col">Name</th>
           <th scope="col">Address</th>
           <th scope="col">Username</th>
           <th scope="col">Password</th>
-          <th scope="col">Edit</th>
+          <th scope="col">Download</th>
           <th scope="col">Delete</th>
         </tr>
       </thead>
@@ -63,20 +56,14 @@ const StudentCard = (props) => {
             <td>{array.username}</td>
             <td>{array.password}</td>
             <td>
-              <Link
-                to={'/students/edit/' + array.id}
-                className="align-self-center text-center "
-              >
-                <FontAwesomeIcon icon={faEdit} />
-              </Link>
+              <a className="align-self-center ">
+                <ReportModal />
+              </a>
             </td>
             <td>
-              <Link
-                to={'/students/delete/' + array.id}
-                className="align-self-center text-center "
-              >
+              <a className="align-self-center ">
                 <FontAwesomeIcon icon={faTrash} />
-              </Link>
+              </a>
             </td>
           </tr>
         ))}
@@ -85,4 +72,4 @@ const StudentCard = (props) => {
   )
 }
 
-export default StudentCard
+export default ReportCard

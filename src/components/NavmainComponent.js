@@ -6,10 +6,10 @@ import Questions from '../Views/Questions'
 import Reports from '../Views/Reports'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Students from '../Views/Students'
-import Proctor from '../Views/Proctoring/Proctor'
-// import Channels from '../Views/Proctoring/Channels'
-import Channels from '../Views/Proctoring/Channels'
 import Employees from '../Views/Employees'
+import ExamReportOne from '../Views/ExamReportOne'
+import ExamReportTwo from '../Views/ExamReportTwo'
+import Proctor from '../Views/Proctoring/Proctor'
 
 function NavmainComponent() {
   return (
@@ -42,13 +42,16 @@ function NavmainComponent() {
             <Reports />
           </Route>
           <Route exact path="/proctoring">
-            <Channels />
-          </Route>
-          <Route exact path="/proctoring/proctor">
             <Proctor />
           </Route>
           <Route exact path="/employees">
             <Employees />
+          </Route>
+          <Route exact path="/examreportoutput1">
+            <ExamReportOne />
+          </Route>
+          <Route exact path="/examreportoutput2">
+            <ExamReportTwo />
           </Route>
         </Switch>
       </div>

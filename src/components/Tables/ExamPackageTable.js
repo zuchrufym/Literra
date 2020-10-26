@@ -1,40 +1,68 @@
 import { Table } from 'reactstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import React, { useState } from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-import ExamSubjectModal from '../Modals/ExamSubjectModal'
+
+import React from 'react'
+
 import ExamPackageCard from '../Cards/ExamPackageCard'
+import ExamPackageModal from '../Modals/ExamPackageModal'
 
 const ExamPackageTable = (props) => {
-  const { buttonLabel, className } = props
+  const examPackageId = 1
 
-  const [modal, setModal] = useState(false)
-
-  const toggle = () => setModal(!modal)
-
-  let array = [
+  let examPackage = [
     {
       id: 1,
-      name: 'Math 1',
+      idExamSubject: 1,
+      name: 'Matematika Dasar',
     },
     {
       id: 2,
-      name: 'Math 2',
+      idExamSubject: 1,
+      name: 'Matematika Teknik',
     },
     {
       id: 3,
-      name: 'Math 3',
+      idExamSubject: 2,
+      name: 'Biologi Dasar',
+    },
+    {
+      id: 4,
+      idExamSubject: 2,
+      name: 'Anatomi Manusia',
+    },
+    {
+      id: 5,
+      idExamSubject: 2,
+      name: 'Anatomi Hewan',
+    },
+    {
+      id: 6,
+      idExamSubject: 3,
+      name: 'Kimia Dasar',
     },
   ]
 
+  examPackage = examPackage.filter(
+    (examPackage) => examPackage.idExamSubject == examPackageId,
+  )
+
   return (
     <Table borderless>
+      <thead>
+        <tr>
+          <th>
+            <ExamPackageModal />
+          </th>
+        </tr>
+      </thead>
       <tbody>
-        {array.map((array) => (
+        {examPackage.map((examPackage) => (
           <tr>
             <td>
-              <ExamPackageCard name={array.name} id={array.id} />
+              <ExamPackageCard
+                key={examPackage.id}
+                name={examPackage.name}
+                id={examPackage.id}
+              />
             </td>
           </tr>
         ))}

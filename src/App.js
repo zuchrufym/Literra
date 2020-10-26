@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import NavmainComponent from './components/NavmainComponent'
 import NavsideComponent from './components/NavsideComponent'
-import { Link, Route, BrowserRouter as Router } from 'react-router-dom'
+import { Route, BrowserRouter as Router } from 'react-router-dom'
 
 function App() {
   return (

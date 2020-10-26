@@ -21,31 +21,31 @@ const ItemTable = (props) => {
     <Table borderless className="text-center">
       <thead>
         <tr>
-          <th style={{width:'100%'}}>
+          <th colSpan="15" className="w-100">
             <ItemModal />
           </th>
         </tr>
         <tr>
-            <th>id</th>
-            <th>subject</th>
-            <th>package</th>
-            <th>material</th>
-            <th>question</th>
-            <th>option 1</th>
-            <th>option 2</th>
-            <th>option 3</th>
-            <th>option 4</th>
-            <th>option 5</th>
-            <th>answer key</th>
-            <th>cognitive level</th>
-            <th>discrimination</th>
-            <th>difficulty</th>
-            <th>statistic item</th>
+          <th>id</th>
+          <th>subject</th>
+          <th>package</th>
+          <th>material</th>
+          <th>question</th>
+          <th>option 1</th>
+          <th>option 2</th>
+          <th>option 3</th>
+          <th>option 4</th>
+          <th>option 5</th>
+          <th>answer key</th>
+          <th>cognitive level</th>
+          <th>discrimination</th>
+          <th>difficulty</th>
+          <th>statistic item</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td >1</td>
+          <td>1</td>
           <td>math</td>
           <td>math 1</td>
           <td>trigonometri</td>
@@ -62,7 +62,7 @@ const ItemTable = (props) => {
           <td>1</td>
         </tr>
         <tr>
-        <td >2</td>
+          <td>2</td>
           <td>math</td>
           <td>math 2</td>
           <td>aljabar</td>
@@ -79,7 +79,7 @@ const ItemTable = (props) => {
           <td>10</td>
         </tr>
         <tr>
-        <td >3</td>
+          <td>3</td>
           <td>math</td>
           <td>math 3</td>
           <td>trigonometri</td>
